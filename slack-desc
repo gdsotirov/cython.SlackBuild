@@ -1,0 +1,14 @@
+cython: Cython (C-Extensions for Python)
+cython:
+cython: Cython is a language that makes writing C extensions for the Python
+cython: language as easy as Python itself.  Cython is based on the well-known
+cython: Pyrex, but supports more cutting edge functionality and
+cython: optimizations.
+cython: The Cython language is very close to the Python language, but Cython
+cython: additionally supports calling C functions and declaring C types on
+cython: variables and class attributes.  This allows the compiler to generate
+cython: very efficient C code from Cython code.
+cython: This makes Cython the ideal language for wrapping external C libs,
+cython: and for fast C modules that speed up the execution of Python code. 
+cython:
+cython: Packaged by Georgi D. Sotirov <gdsotirov@dir.bg>
