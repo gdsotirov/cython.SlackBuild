@@ -1,2 +1,2 @@
-glibc-solibs >= 2.11.1
+glibc-solibs >= 2.13
 python >= 2.6
