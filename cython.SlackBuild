@@ -1,15 +1,32 @@
 #!/bin/sh
 #
 # Slackware build script for Cython
-# Written by Georgi D. Sotirov <gdsotirov@dir.bg>
+# Copyright (C) 2010-2011 Georgi D. Sotirov <gdsotirov@dir.bg>
+#
+# This program is free software; you can redistribute it and/or
+# modify it under the terms of the GNU General Public License
+# as published by the Free Software Foundation; either version 2
+# of the License, or (at your option) any later version.
+#
+# This program is distributed in the hope that it will be useful,
+# but WITHOUT ANY WARRANTY; without even the implied warranty of
+# MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+# GNU General Public License for more details.
+# 
+# You should have received a copy of the GNU General Public License
+# along with this program; if not, write to the Free Software
+# Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA  02110-1301, USA.
+#
 # Visit SlackPack at http://sotirov-bg.net/slackpack/
 #
+# $Id: cython.SlackBuild,v 1.2 2011/10/15 16:49:20 gsotirov Exp $
+#
 
-. ../slack-package.conf
+. ../../slack-package.conf
 
 NAME=Cython
 PNAME=`echo $NAME | tr "[:upper:]" "[:lower:]"`
-VERSION=0.13
+VERSION=0.15.1
 BUILD=${BUILD:-1}
 ARCH=${ARCH:-i486}
 
@@ -35,14 +52,15 @@ mkdir -p $PKG
 
 # Extract the sources
 cd $TMP
-tar -xvf $CWD/$NAME-$VERSION.tar.gz || exit 3
+tar -xvf $CWD/$NAME-$VERSION.tar.?z* || exit 3
 cd $SRC
 fix_source
 
 # Build & install
 CFLAGS=$SLKCFLAGS \
 python setup.py install \
-  --root $PKG
+  --root $PKG \
+  --libdir $PKG/usr/lib${LIBDIRSUFFIX}
 
 # Prepare
 bin_perms $PKG
@@ -55,7 +73,6 @@ DOCFILES="$DOCFILES COPYING.txt LICENSE.txt PKG-INFO ToDo.txt USAGE.txt"
     mv $file `basename $file .txt`
   done )
 
-# Copy service info
 install -m 755 -d $PKG/install
 install -m 644 $CWD/slack-desc     $PKG/install/slack-desc
 install -m 644 $CWD/slack-required $PKG/install/slack-required
@@ -66,6 +83,7 @@ install -m 644 $CWD/slack-desc         $SBDIR/slack-desc
 install -m 644 $CWD/slack-required     $SBDIR/slack-required
 install -m 644 $CWD/$PNAME.SlackBuild   $SBDIR/$PNAME.SlackBuild
 
+# Assemble
 PKGNAME=$PNAME-$VERSION-$ARCH-$BUILD$MYIN
 cd $PKG
 makepkg -l y -c n $PKG_DIR/$PKGNAME.txz
