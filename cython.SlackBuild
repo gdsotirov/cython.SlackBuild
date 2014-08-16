@@ -19,14 +19,14 @@
 #
 # Visit SlackPack at http://sotirov-bg.net/slackpack/
 #
-# $Id: cython.SlackBuild,v 1.4 2014/08/16 21:40:01 gsotirov Exp $
+# $Id: cython.SlackBuild,v 1.5 2014/08/16 22:05:04 gsotirov Exp $
 #
 
 . ../../slack-package.conf
 
 NAME=Cython
 PNAME=`echo $NAME | tr "[:upper:]" "[:lower:]"`
-VERSION=0.17.4
+VERSION=0.19.2
 PYTHON_VERSION=`python -c 'import sys; print("%s.%s" % sys.version_info[:2])'`
 BUILD=${BUILD:-1}
 ARCH=${ARCH:-i486}
