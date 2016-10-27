@@ -19,16 +19,16 @@
 #
 # Visit SlackPack at http://sotirov-bg.net/slackpack/
 #
-# $Id: cython.SlackBuild,v 1.6 2016/07/18 19:13:22 gsotirov Exp $
+# $Id: cython.SlackBuild,v 1.7 2016/10/27 09:17:31 gsotirov Exp $
 #
 
 . ../../slack-package.conf
 
 NAME=Cython
 PNAME=`echo $NAME | tr "[:upper:]" "[:lower:]"`
-VERSION=0.24.1
-BUILD=${BUILD:-1}
+VERSION=0.25.1
 ARCH=${ARCH:-i586}
+BUILD=${BUILD:-1}
 
 CWD=${CWD:-`pwd`}
 TMP=${TMP:-/tmp}
