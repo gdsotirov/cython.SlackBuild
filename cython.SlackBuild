@@ -19,13 +19,14 @@
 #
 # Visit SlackPack at http://sotirov-bg.net/slackpack/
 #
-# $Id: cython.SlackBuild,v 1.14 2017/10/22 15:14:55 gsotirov Exp $
+# $Id: cython.SlackBuild,v 1.15 2017/11/05 15:28:10 gsotirov Exp $
 #
 
 . ../../slack-package.conf
 
-NAME=cython
-VERSION=0.27.2
+NAME=Cython
+PNAME=$(echo $NAME | tr '[:upper:]' '[:lower:]')
+VERSION=0.27.3
 ARCH=${ARCH:-i586}
 BUILD=${BUILD:-1}
 
@@ -42,7 +43,7 @@ if [ -e $SRC -a -d $SRC ]; then
   exit 1
 fi
 
-PKG=$TMP/package-${NAME}
+PKG=$TMP/package-${PNAME}
 if [ -e $PKG -a -d $PKG ]; then
   echo "Package creation directory '$PKG' already exists! Please, move it or remove it."
   exit 2
@@ -81,7 +82,7 @@ install -m 644 $CWD/slack-required     $SBDIR/slack-required
 install -m 644 $CWD/${NAME}.SlackBuild $SBDIR/${NAME}.SlackBuild
 
 # Assemble
-PKGNAME=${NAME}-${VERSION}-${ARCH}-${BUILD}${MYIN}
+PKGNAME=${PNAME}-${VERSION}-${ARCH}-${BUILD}${MYIN}
 cd $PKG
 makepkg -l y -c n $PKG_DIR/${PKGNAME}.txz
 cd $PKG_DIR
