@@ -11,4 +11,4 @@ cython: very efficient C code from Cython code.
 cython: This makes Cython the ideal language for wrapping external C libs,
 cython: and for fast C modules that speed up the execution of Python code. 
 cython:
-cython: Packaged by Georgi D. Sotirov <gdsotirov@dir.bg>
+cython: Packaged by Georgi D. Sotirov <gdsotirov@gmail.com>
